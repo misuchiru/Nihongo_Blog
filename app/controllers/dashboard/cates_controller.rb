@@ -1,4 +1,4 @@
-class Dashboard::CatesController < ApplicationController
+class Dashboard::CatesController < Dashboard::AdminController
   before_action :set_cate, only: [:show, :edit, :update, :destroy]
 
   # GET /cates
