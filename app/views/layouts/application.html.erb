@@ -9,10 +9,29 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="sidebar">
+      <div id="logo">
+        <a href="<%= root_path %>"><%= image_tag("profile.jpg") %></a>
+      </div>
+      <br>
+      <br>
+      <ul>
+        <li class="category">Website</li>
+        <li><%= link_to "關於我", root_path %></li>
+        <li><%= link_to "文章", posts_path %></li>
+      </ul>
+      <ul>
+        <li class="category">Social</li>
+        <li><a href="https://github.com/misuchiru">Github</a></li>
+        <li><a href="mailto:perryhaha@gmail.com">Email</a></li>
+      </ul>
 
-    <hr>
+    </div>
+    <div id="main_content">
+      <h2 id="header"><%=  link_to 'Perryの日文學習筆記', root_path %></h2>
+      <%= yield %>
 
-    <%= will_paginate @paginate if @paginate %>
+      <%= will_paginate @paginate if @paginate %>
+    </div>
   </body>
 </html>

@@ -1,11 +1,13 @@
-%p#notice= notice
-%p
-  %strong Title:
-  = @post.title
-%p
-  %strong body:
-.wmd-output
-  :preserve
-    #{sanitize(@post.body)}
+%div{:id => 'post_content'}
+  %h1.title
+    = @post.title
+  %p.date
+    Submitted
+    = @post.created_at.strftime("%B %d, %Y")
+  %br
+  %p.body
+    .wmd-output
+      :preserve
+        #{sanitize(@post.body)}
 
-= link_to 'Back', posts_path
+  = link_to 'Back', posts_path
