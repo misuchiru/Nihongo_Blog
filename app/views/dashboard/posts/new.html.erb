@@ -1,6 +1,7 @@
 <h1>New Post</h1>
 
-<%= form_for @post, :url => dashboard_posts_path, method: :post do |f| %>
+<%= simple_form_for  @post, :url => dashboard_posts_path, method: :post do |f| %>
+
     <% if @post.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -14,8 +15,8 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.input :title %>
+      <%= f.input :body, as: :pagedown, input_html: { preview: true, rows: 10 } %>
     </div>
 
     <div class="actions">

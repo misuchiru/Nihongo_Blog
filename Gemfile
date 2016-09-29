@@ -33,6 +33,12 @@ gem 'rails-pry'
 gem 'devise'
 gem 'paperclip'
 
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
+gem 'pagedown-bootstrap-rails'
+gem 'simple_form'
+
+gem "haml-rails"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

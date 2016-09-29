@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  root 'posts#index'
   resources :cates
   resources :posts
   namespace :dashboard do
