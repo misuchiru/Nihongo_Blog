@@ -16,6 +16,7 @@
 
     <div class="field">
       <%= f.input :title %>
+      <%= f.association :cate, prompt: "請選擇類別" %>
       <%= f.input :body, as: :pagedown, input_html: { preview: true, rows: 10 } %>
     </div>
 

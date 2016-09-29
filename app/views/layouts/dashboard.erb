@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NihongoBlog Dashboard</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
+
+<body>
+  Hi! <%= current_user.email %>, <%= link_to "登出", destroy_user_session_path, method: "delete" %>
+  <hr>
+
+  <ul>
+    <li><%= link_to "文章管理", dashboard_posts_path %></li>
+    <li><%= link_to "類別管理", dashboard_cates_path %></li>
+  </ul>
+
+  <hr>
+  <%= yield %>
+
+  <hr>
+
+  <%= will_paginate @paginate if @paginate %>
+</body>
+</html>

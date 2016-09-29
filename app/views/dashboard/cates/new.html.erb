@@ -1,0 +1,25 @@
+<h1>New Cate</h1>
+
+<%= simple_form_for  @cate, :url => dashboard_cates_path, method: :post do |f| %>
+
+    <% if @cate.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@cate.errors.count, "error") %> prohibited this cate from being saved:</h2>
+
+          <ul>
+            <% @cate.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.input :name %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+<%= link_to 'Back', dashboard_cates_path %>

@@ -1,26 +1,29 @@
 <h1>Editing Post</h1>
 
-<%= form_for @post, :url => dashboard_post_path, method: :patch do |f| %>
-  <% if @post.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= simple_form_for  @post, :url => dashboard_post_path, method: :patch do |f| %>
 
-        <ul>
-          <% @post.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-  <% end %>
+    <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.input :title %>
+      <%= f.association :cate, prompt: "請選擇類別" %>
+      <%= f.input :body, as: :pagedown, input_html: { preview: true, rows: 10 } %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
+
 <%= link_to 'Show', dashboard_post_path(@post) %> |
 <%= link_to 'Back', dashboard_posts_path %>

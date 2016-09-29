@@ -4,7 +4,7 @@ class Dashboard::CatesController < Dashboard::AdminController
   # GET /cates
   # GET /cates.json
   def index
-    @cates = Cate.all
+    @cates  = Cate.all
   end
 
   # GET /cates/1
@@ -28,7 +28,7 @@ class Dashboard::CatesController < Dashboard::AdminController
 
     respond_to do |format|
       if @cate.save
-        format.html { redirect_to @cate, notice: 'Cate was successfully created.' }
+        format.html { redirect_to dashboard_cates_path, notice: 'Cate was successfully created.' }
         format.json { render :show, status: :created, location: @cate }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Dashboard::CatesController < Dashboard::AdminController
   def update
     respond_to do |format|
       if @cate.update(cate_params)
-        format.html { redirect_to @cate, notice: 'Cate was successfully updated.' }
+        format.html { redirect_to dashboard_cates_path, notice: 'Cate was successfully updated.' }
         format.json { render :show, status: :ok, location: @cate }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Dashboard::CatesController < Dashboard::AdminController
   def destroy
     @cate.destroy
     respond_to do |format|
-      format.html { redirect_to cates_url, notice: 'Cate was successfully destroyed.' }
+      format.html { redirect_to dashboard_cates_path, notice: 'Cate was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
