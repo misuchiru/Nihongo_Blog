@@ -16,3 +16,4 @@
 //= require pagedown_init
 //= require jquery_ujs
 //= require_tree .
+// Create a clone of the menu, right next to original.

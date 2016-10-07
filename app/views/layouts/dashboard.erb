@@ -9,19 +9,21 @@
 </head>
 
 <body>
-  Hi! <%= current_user.email %>, <%= link_to "登出", destroy_user_session_path, method: "delete" %>
-  <hr>
+  <%= render 'common/siderMenu' %>
+  <div id="main_content">
+    <nav id="header" class="navbar">
+      <ul class="nav navbar-nav">
+        <li><h2><%=  link_to 'Perryの日文學習筆記', root_path %></h2></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>Hi! <%= current_user.email %></li>
+      </ul>
 
-  <ul>
-    <li><%= link_to "文章管理", dashboard_posts_path %></li>
-    <li><%= link_to "類別管理", dashboard_cates_path %></li>
-  </ul>
-
-  <hr>
-  <%= yield %>
-
-  <hr>
-
-  <%= will_paginate @paginate if @paginate %>
+    </nav>
+    <div class="col-md-12">
+      <%= yield %>
+      <%= will_paginate @paginate if @paginate %>
+    </div>
+  </div>
 </body>
 </html>
