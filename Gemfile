@@ -34,7 +34,7 @@ gem 'devise'
 gem 'paperclip'
 
 gem 'bootstrap-sass'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 gem 'pagedown-bootstrap-rails'
 gem 'simple_form'
 
