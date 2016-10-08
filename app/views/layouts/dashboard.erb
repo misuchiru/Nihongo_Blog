@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NihongoBlog Dashboard</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
+
+<body>
+  <%= render 'common/siderMenu' %>
+  <div id="main_content">
+    <nav id="header" class="navbar">
+      <ul class="nav navbar-nav">
+        <li><h2><%=  link_to 'Perryの日文學習筆記', root_path %></h2></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>Hi! <%= current_user.email %></li>
+      </ul>
+
+    </nav>
+    <div class="col-md-12">
+      <%= yield %>
+      <%= will_paginate @paginate if @paginate %>
+    </div>
+  </div>
+</body>
+</html>
