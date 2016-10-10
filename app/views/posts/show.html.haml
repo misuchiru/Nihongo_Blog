@@ -9,5 +9,6 @@
     .wmd-output
       :preserve
         #{sanitize(@post.body)}
-
-  = link_to 'Back', posts_path
+  %hr
+  .text-center
+    = link_to 'Back', posts_path, :class => 'button'

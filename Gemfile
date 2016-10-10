@@ -37,6 +37,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'pagedown-bootstrap-rails'
 gem 'simple_form'
+gem "seo_helper"
 
 gem "haml-rails"
 group :production do
