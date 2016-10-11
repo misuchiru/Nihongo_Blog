@@ -37,9 +37,19 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'pagedown-bootstrap-rails'
 gem 'simple_form'
+
+#SEO設定
 gem "seo_helper"
 
+#網址可以title顯示
+gem 'friendly_id'
+# babosa這個gem是讓我們做字元轉換的，要支援中文網址時會用到
+gem "babosa"
+
+#將erb轉為haml
 gem "haml-rails"
+
+#推至heroku所使用的gem
 group :production do
   gem "pg"
   gem "rails_12factor"
