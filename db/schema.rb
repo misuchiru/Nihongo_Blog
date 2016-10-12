@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011093206) do
+ActiveRecord::Schema.define(version: 20161012095004) do
 
   create_table "cates", force: :cascade do |t|
     t.string   "name"
@@ -32,12 +32,13 @@ ActiveRecord::Schema.define(version: 20161011093206) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.text     "body"
     t.integer  "cate_id"
     t.integer  "user_id"
     t.string   "slug"
+    t.integer  "status",     default: 0
     t.index ["slug"], name: "index_posts_on_slug", unique: true
   end
 

@@ -17,6 +17,7 @@
     <div class="field">
       <%= f.input :title %>
       <%= f.association :cate, prompt: "請選擇類別" %>
+      <%= f.input :status, collection: [ ['草稿', 'draft'] ,['公開文章', 'published'] ], as: :select, prompt: "請選擇狀態" %>
       <%= f.input :body, as: :pagedown, input_html: { preview: true, rows: 10 } %>
     </div>
 
