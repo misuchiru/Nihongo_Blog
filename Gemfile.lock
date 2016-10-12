@@ -42,6 +42,7 @@ GEM
     autoprefixer-rails (6.4.1.1)
       execjs
     awesome_print (1.7.0)
+    babosa (1.0.2)
     bcrypt (3.1.11)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
@@ -72,6 +73,8 @@ GEM
     ffi (1.9.14)
     font-awesome-sass (4.6.2)
       sass (>= 3.2)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -217,11 +220,13 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  babosa
   bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
   devise
   font-awesome-sass
+  friendly_id
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails

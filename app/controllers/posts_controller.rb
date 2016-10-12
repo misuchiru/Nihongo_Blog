@@ -5,8 +5,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     set_page_title @post.title
+    set_page_description view_context.truncate(@post.body, :length => 100)
   end
 
 end

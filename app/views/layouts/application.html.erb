@@ -2,7 +2,8 @@
 <html>
   <head>
     <%= render_page_title_tag %>
-    <meta name="description" content="學習 日語 的筆記">
+    <%= render_page_description_meta_tag %>
+    <%= favicon_link_tag(source='favicon.png', options={}) %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
