@@ -2,22 +2,33 @@
 <html>
   <head>
     <%= render_page_title_tag %>
+    <%= description_meta_tag("Lorem ipsum dolor sit amet!") %>
     <%= render_page_description_meta_tag %>
     <%= favicon_link_tag(source='favicon.png', options={}) %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= render 'common/css' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= render 'common/siderMenu' %>
-    <div id="main_content">
-      <nav id="header"><h2><%=  link_to 'Perryの日語學習筆記', root_path %></h2></nav>
-      <%= yield %>
-
-      <%= will_paginate @paginate if @paginate %>
-    </div>
+    <%= render 'common/topNavbar' %>
+    <%= render 'common/banner' %>
+    <section id="blog-full-width">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <%= yield %>
+            <%= will_paginate @paginate if @paginate %>
+          </div>
+          <div class="col-md-4">
+            <%= render 'common/siderMenu' %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <%= render 'common/js' %>
   </body>
   <%= render 'common/googleAnalytics' %>
 </html>
