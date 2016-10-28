@@ -1,26 +1,61 @@
-<div id="sidebar">
-    <div id="logo">
-        <a href="/assets/profile-0ab2e19730b88716fdeadcc374b322c70f54f3ee7cd020645e3016bb85232e77.jpg" target="_blank"><%= image_tag("profile.jpg") %></a>
+<div class="sidebar">
+  <div class="author widget">
+    <img class="img-responsive" src="/assets/img/okinawa.jpg">
+    <div class="author-body text-center">
+      <div class="author-img">
+        <%= image_tag("profile.jpg") %>
+      </div>
+      <div class="author-bio">
+        <h3>PerryHaHa</h3>
+        <p></p>
+      </div>
     </div>
-    <br>
-    <br>
+  </div>
 
-    <ul>
-      <li class="category">Website</li>
-      <li><%= link_to "關於我", root_path %></li>
-      <li><%= link_to "文章", posts_path %></li>
-    </ul>
-    <ul>
-      <li class="category">Social</li>
-      <li><a href="https://github.com/misuchiru">Github</a></li>
-      <!--<li><a href="mailto:perryhaha@gmail.com">Email</a></li>-->
-    </ul>
-      <% if current_user %>
-        <ul>
-          <li class="category">Manage</li>
-          <li><%= link_to "文章管理", dashboard_posts_path %></li>
-          <li><%= link_to "類別管理", dashboard_cates_path %></li>
-          <li><%= link_to "回後台", dashboard_posts_path %></li>
-        </ul>
-      <% end %>
+  <!--<div class="categories widget">-->
+    <!--<h3 class="widget-head">Categories</h3>-->
+    <!--<ul>-->
+      <!--<li>-->
+        <!--<a href="">Audio</a> <span class="badge">1</span>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="">Gallery</a> <span class="badge">2</span>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="">Image</a> <span class="badge">4</span>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="">Standard</a> <span class="badge">2</span>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="">Status</a> <span class="badge">3</span>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+
+  <!--<div class="recent-post widget">-->
+    <!--<h3>Recent Posts</h3>-->
+    <!--<ul>-->
+      <!--<li>-->
+        <!--<a href="#">Corporate meeting turns into a photoshooting.</a><br>-->
+        <!--<time>16 May, 2015</time>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#">Statistics,analysis. The key to succes.</a><br>-->
+        <!--<time>15 May, 2015</time>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#">Blog post without image, only text.</a><br>-->
+        <!--<time>14 May, 2015</time>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#">Blog post with audio player. Share your creations.</a><br>-->
+        <!--<time>14 May, 2015</time>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="#">Blog post with classic Youtbube player.</a><br>-->
+        <!--<time>12 May, 2015</time>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
 </div>

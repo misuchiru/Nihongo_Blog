@@ -1,6 +1,18 @@
 <% @posts.each do |post| %>
-  <div class="post_wrapper">
-    <h2 class="title"><%=  link_to post.title, post %></h2>
-    <p class="date"><%= post.created_at.strftime("%B %d, %Y") %></p>
-  </div>
+  <article class="wow fadeInDown">
+    <div class="blog-content">
+      <h2 class="blogpost-title">
+        <%=  link_to post.title, post %>
+      </h2>
+      <div class="blog-meta">
+        <span><%= post.created_at.strftime("%B %d, %Y") %></span>
+        <span><%= post.cate.name %></span>
+      </div>
+      <p>
+        <%= truncate(post.body, :length => 100) %>
+      </p>
+      <%=  link_to "更多內容", post, class: "btn btn-dafault btn-details" %>
+    </div>
+  </article>
+    <hr>
 <% end %>
