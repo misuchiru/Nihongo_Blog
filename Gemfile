@@ -49,6 +49,8 @@ gem "babosa"
 #將erb轉為haml
 gem "haml-rails"
 
+gem 'sitemap_generator'
+
 #推至heroku所使用的gem
 group :production do
   gem "pg"
