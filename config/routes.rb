@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :cates
   resources :posts
   namespace :dashboard do
+    root 'posts#index'
     resources :posts
     resources :cates
   end

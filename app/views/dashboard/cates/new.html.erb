@@ -1,4 +1,4 @@
-<h1>New Cate</h1>
+<h2>新增類別</h2>
 
 <%= simple_form_for  @cate, :url => dashboard_cates_path, method: :post do |f| %>
 
@@ -18,8 +18,8 @@
       <%= f.input :name %>
     </div>
 
-    <div class="actions">
-      <%= f.submit %>
+    <div class="text-center">
+      <%= f.submit '新增類別', :class => 'btn btn-info' %> ｜
+      <%= link_to '返回', dashboard_cates_path, class: 'btn btn-default' %>
     </div>
 <% end %>
-<%= link_to 'Back', dashboard_cates_path %>

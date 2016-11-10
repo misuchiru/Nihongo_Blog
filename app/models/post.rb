@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
   enum status: %i(draft published)
-
+  self.per_page = 10
   # 原本是input.to_s.parameterize，但是parameterize只支援英文跟數字，所以改用babosa的to_slug
   def normalize_friendly_id(input)
     input.to_s.to_slug.normalize.to_s
