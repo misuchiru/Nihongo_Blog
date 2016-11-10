@@ -41,16 +41,16 @@
 
 
 
-jQuery(document).ready(function(){
-	"use strict";
-	new WOW().init();
-
-
-(function(){
- jQuery('.smooth-scroll').scrollingTo();
-}());
-
-});
+// jQuery(document).ready(function(){
+// 	"use strict";
+// 	new WOW().init();
+//
+//
+// (function(){
+//  jQuery('.smooth-scroll').scrollingTo();
+// }());
+//
+// });
 
 
 
@@ -70,41 +70,41 @@ $(document).ready(function(){
         }
     });
 
-    $("#clients-logo").owlCarousel({
- 
-        itemsCustom : false,
-        pagination : false,
-        items : 5,
-        autoplay: true,
-
-    })
+    // $("#clients-logo").owlCarousel({
+    //
+    //     itemsCustom : false,
+    //     pagination : false,
+    //     items : 5,
+    //     autoplay: true,
+    //
+    // })
 
 });
 
 
 
-// fancybox
-$(".fancybox").fancybox({
-    padding: 0,
-
-    openEffect : 'elastic',
-    openSpeed  : 450,
-
-    closeEffect : 'elastic',
-    closeSpeed  : 350,
-
-    closeClick : true,
-    helpers : {
-        title : { 
-            type: 'inside' 
-        },
-        overlay : {
-            css : {
-                'background' : 'rgba(0,0,0,0.8)'
-            }
-        }
-    }
-});
+// // fancybox
+// $(".fancybox").fancybox({
+//     padding: 0,
+//
+//     openEffect : 'elastic',
+//     openSpeed  : 450,
+//
+//     closeEffect : 'elastic',
+//     closeSpeed  : 350,
+//
+//     closeClick : true,
+//     helpers : {
+//         title : {
+//             type: 'inside'
+//         },
+//         overlay : {
+//             css : {
+//                 'background' : 'rgba(0,0,0,0.8)'
+//             }
+//         }
+//     }
+// });
 
 
 

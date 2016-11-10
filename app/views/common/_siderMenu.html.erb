@@ -12,26 +12,16 @@
     </div>
   </div>
 
-  <!--<div class="categories widget">-->
-    <!--<h3 class="widget-head">Categories</h3>-->
-    <!--<ul>-->
-      <!--<li>-->
-        <!--<a href="">Audio</a> <span class="badge">1</span>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="">Gallery</a> <span class="badge">2</span>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="">Image</a> <span class="badge">4</span>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="">Standard</a> <span class="badge">2</span>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="">Status</a> <span class="badge">3</span>-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
+  <div class="categories widget">
+    <h3 class="widget-head">文章類別</h3>
+    <ul>
+      <% Cate.all.each do |cate| %>
+        <li>
+          <%= link_to cate.name, posts_path(cate: cate.name) %> <span class="badge"><%= cate.posts.published.count %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
   <!--<div class="recent-post widget">-->
     <!--<h3>Recent Posts</h3>-->

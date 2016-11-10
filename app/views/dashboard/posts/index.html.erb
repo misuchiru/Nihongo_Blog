@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>文章管理</h1>
+<h2>文章管理</h2>
 <hr>
-<%= link_to 'New Post', new_dashboard_post_path, class: "btn btn-dafault btn-details" %>
+<%= link_to '新增文章', new_dashboard_post_path, class: "btn btn-info" %>
 <br>
 <br>
 <table class="table">
@@ -10,7 +10,7 @@
     <tr>
       <th>名稱</th>
       <th>時間</th>
-      <th>狀態</th>
+      <th>文章狀態</th>
       <th colspan="3">管理</th>
     </tr>
   </thead>
@@ -19,11 +19,11 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td><%= post.created_at %></td>
+        <td><%= post.created_at.to_s(:db) %></td>
         <td><%= post.status %></td>
-        <td><%= link_to 'Show', dashboard_post_path(post) %></td>
-        <td><%= link_to 'Edit', edit_dashboard_post_path(post) %></td>
-        <td><%= link_to 'Destroy', dashboard_post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '檢視', dashboard_post_path(post) , class: "btn btn-default btn-sm"%></td>
+        <td><%= link_to '編輯', edit_dashboard_post_path(post), class: "btn btn-info btn-sm" %></td>
+        <td><%= link_to '刪除', dashboard_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
