@@ -1,6 +1,6 @@
-<h1>Editing Cate</h1>
+<h2>編輯類別</h2>
 
-<%= form_for @cate, :url => dashboard_cate_path, method: :patch do |f| %>
+<%= simple_form_for @cate, :url => dashboard_cate_path, method: :patch do |f| %>
   <% if @cate.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@cate.errors.count, "error") %> prohibited this cate from being saved:</h2>
@@ -14,13 +14,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.input :name %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="text-center">
+    <%= f.submit '更新類別', :class => 'btn btn-info' %> ｜
+    <%= link_to '返回', dashboard_cates_path, class: 'btn btn-default' %>
   </div>
 <% end %>
-<%= link_to 'Show', dashboard_cate_path(@cate) %> |
-<%= link_to 'Back', dashboard_cates_path %>
