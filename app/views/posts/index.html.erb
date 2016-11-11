@@ -5,6 +5,7 @@
         <%=  link_to post.title, post %>
       </h2>
       <div class="blog-meta">
+        <span><%= post.cate.name %></span>
         <span><%= post.created_at.strftime("%B %d, %Y") %></span>
       </div>
       <p>
