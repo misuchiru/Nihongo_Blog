@@ -2,8 +2,9 @@
   %h1.title
     = @post.title
   %p.date
-    Submitted
     = @post.created_at.strftime("%B %d, %Y")
+  %p.date
+    = @post.cate.name
   %br
   %p.body
     .wmd-output
