@@ -6,7 +6,6 @@
       </h2>
       <div class="blog-meta">
         <span><%= post.created_at.strftime("%B %d, %Y") %></span>
-        <span><%= post.cate.name %></span>
       </div>
       <p>
         <%= truncate(post.body, :length => 100) %>
