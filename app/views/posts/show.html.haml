@@ -1,10 +1,12 @@
 %div{:id => 'post_content'}
   %h1.title
     = @post.title
-  %p.date
-    = @post.created_at.strftime("%B %d, %Y")
-  %p.date
-    = @post.cate.name
+  .blog-meta
+    %span.date
+      = @post.created_at.strftime("%B %d, %Y")
+    \/
+    %span.date
+      = @post.cate.name
   %br
   %p.body
     .wmd-output
