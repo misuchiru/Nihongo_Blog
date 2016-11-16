@@ -894,7 +894,7 @@ article {
 .blog-content .blog-meta {
   color: #9a9a9a;
   font-weight: 300;
-  margin-bottom: 25px;
+  margin-bottom: 8px;
 }
 .blog-content .blog-meta span:after {
   content: '/';
