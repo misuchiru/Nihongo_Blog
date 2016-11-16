@@ -8,6 +8,7 @@
         <span><%= post.cate.name %></span>
         <span><%= post.created_at.strftime("%B %d, %Y") %></span>
       </div>
+      <%= raw post.tags.map(&:name).map { |t| link_to t, tag_path(t), class: "btn btn-success btn-xs" }.join(', ') %>
       <p>
         <%= truncate(post.body, :length => 100) %>
       </p>
