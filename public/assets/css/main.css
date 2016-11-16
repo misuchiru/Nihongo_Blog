@@ -878,10 +878,10 @@ ul.social-icons li {
   background: #00A6BB;
 }
 #blog-full-width {
-  padding: 0px 0 80px;
+  padding: 8px 0 80px;
 }
 article {
-  padding: 30px 0;
+  padding: 16px 0;
 }
 .blog-content h2 {
   font-family: 'Roboto', sans-serif;
@@ -921,7 +921,7 @@ article {
   margin-top: 30px;
 }
 .sidebar {
-  padding-top: 30px;
+  padding-top: 16px;
 }
 .sidebar .widget {
   margin-bottom: 40px;
