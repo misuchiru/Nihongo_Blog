@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     @post = Post.friendly.find(params[:id])
     set_page_title @post.title
     set_page_description view_context.truncate(@post.body, :length => 100)
+    set_page_keywords @post.tags.map(&:name)
   end
 
 end
