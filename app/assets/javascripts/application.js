@@ -14,6 +14,8 @@
 //= require bootstrap-sprockets
 //= require pagedown_bootstrap
 //= require pagedown_init
+//= require moment
+//= require fullcalendar
 //= require jquery_ujs
 //= require_tree .
 // Create a clone of the menu, right next to original.

@@ -49,6 +49,10 @@ gem "babosa"
 #將erb轉為haml
 gem "haml-rails"
 
+#行事曆
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
 gem 'sitemap_generator'
 
 #推至heroku所使用的gem
