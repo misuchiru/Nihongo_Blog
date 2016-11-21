@@ -1,6 +1,6 @@
 var initialize_calendar;
 initialize_calendar = function() {
-    $('.calendar').each(function(){
+    $('#calendar1').each(function(){
         var calendar = $(this);
         calendar.fullCalendar({
             header: {
@@ -12,10 +12,15 @@ initialize_calendar = function() {
             selectHelper: true,
             editable: true,
             eventLimit: true,
-            events: '/events.json',
+            events: 'events/events.json',
 
             select: function(start, end) {
-                $.getScript('/events/new', function() {});
+                $.getScript('events/new', function() {
+                    $('#event_date_range').val(moment(start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(end).format("MM/DD/YYYY HH:mm"))
+                    date_range_picker();
+                    $('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
+                    $('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
+                });
 
                 calendar.fullCalendar('unselect');
             },
@@ -35,9 +40,7 @@ initialize_calendar = function() {
                 });
             },
 
-            eventClick: function(event, jsEvent, view) {
-                $.getScript(event.edit_url, function() {});
-            }
+
         });
     })
 };

@@ -1,8 +1,8 @@
 class Dashboard::EventsController < Dashboard::AdminController
 
   def index
-    @trip = Trip.find(params[:trip_id])
-    @events = @trip.where(start: params[:start]..params[:end])
+    @trips = Trip.find(params[:trip_id])
+    @events = @trips.events.where(start: params[:start]..params[:end])
   end
 
   def show

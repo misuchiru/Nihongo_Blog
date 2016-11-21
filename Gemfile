@@ -50,8 +50,8 @@ gem "babosa"
 gem "haml-rails"
 
 #行事曆
-gem 'fullcalendar-rails'
-gem 'momentjs-rails'
+# gem 'fullcalendar-rails'
+# gem 'momentjs-rails'
 
 gem 'sitemap_generator'
 
