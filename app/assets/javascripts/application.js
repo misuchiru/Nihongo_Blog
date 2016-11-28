@@ -12,12 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require pagedown_bootstrap
 //= require pagedown_init
 //= require moment
 //= require fullcalendar
 //= require daterangepicker
+//= require turbolinks
 //= require_tree .
 // Create a clone of the menu, right next to original.

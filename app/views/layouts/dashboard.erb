@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= render 'common/css' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
+  <%= render '/common/css' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body class="dashboad-top">
-  <%= render 'common/topNavbar' %>
+  <%= render '/common/topNavbar' %>
   <section id="blog-full-width">
     <div class="container">
       <div class="row">
@@ -25,6 +25,6 @@
       </div>
     </div>
   </section>
-  <%= render 'common/js' %>
+  <%= render '/common/js' %>
 </body>
 </html>

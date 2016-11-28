@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     resources :posts
     resources :cates
     resources :trips do
-      resources :events
+      resources :events do
+        collection do
+          get :get_date
+        end
+      end
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

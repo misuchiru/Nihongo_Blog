@@ -1,8 +1,9 @@
-class Dashboard::EventsController < Dashboard::AdminController
-
+class Dashboard::EventsController < ApplicationController
+  before_action :authenticate_user!
+  layout 'dashboard'
   def index
-    @trips = Trip.find(params[:trip_id])
-    @events = @trips.events.where(start: params[:start]..params[:end])
+    @trip = Trip.find(params[:trip_id])
+    @events = @trip.events
   end
 
   def show
@@ -36,6 +37,10 @@ class Dashboard::EventsController < Dashboard::AdminController
     @trip = Trip.find(params[:trip_id])
     @event = @trip.events.find(params[:id])
     @event.destroy
+  end
+  def get_date
+    @trip = Trip.find(params[:trip_id])
+    render 'get_date', formats: 'json', handlers: 'jbuilder'
   end
 
   private

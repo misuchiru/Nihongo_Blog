@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs_to :travel
+  belongs_to :trip
   validates :title, presence: true
   attr_accessor :date_range
   def all_day_event?

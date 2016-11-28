@@ -58,6 +58,6 @@ class Dashboard::TripsController < Dashboard::AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def trip_params
-    params.require(:trip).permit(:name)
+    params.require(:trip).permit(:name, :date_range, :start_date, :end_date)
   end
 end

@@ -1,47 +1,29 @@
 var initialize_calendar;
 initialize_calendar = function() {
-    $('#calendar1').each(function(){
+    var t;
+  
+
+    $('.calendar').each(function(){
         var calendar = $(this);
         calendar.fullCalendar({
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            selectable: true,
-            selectHelper: true,
             editable: true,
-            eventLimit: true,
-            events: 'events/events.json',
-
-            select: function(start, end) {
-                $.getScript('events/new', function() {
-                    $('#event_date_range').val(moment(start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(end).format("MM/DD/YYYY HH:mm"))
-                    date_range_picker();
-                    $('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
-                    $('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
-                });
-
-                calendar.fullCalendar('unselect');
+            scrollTime: '05:00:00',
+            height: 950,
+            defaultView: 'agendaDate',
+            header: {
+                left: 'prev,today,next',
+                center: 'title',
+                right: 'agendaDay,agendaDate,month'
             },
-
-            eventDrop: function(event, delta, revertFunc) {
-                event_data = {
-                    event: {
-                        id: event.id,
-                        start: event.start.format(),
-                        end: event.end.format()
+            views: {
+                agendaDate: {
+                    type: 'agenda',
+                    duration: {
                     }
-                };
-                $.ajax({
-                    url: event.update_url,
-                    data: event_data,
-                    type: 'PATCH'
-                });
-            },
-
-
+                }
+            }
         });
     })
+
 };
 $(document).on('turbolinks:load', initialize_calendar);
