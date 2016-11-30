@@ -1,0 +1,9 @@
+<div id="post_content">
+  <h1 class="title"><%= @trip.name %></h1>
+  <div class="blog-meta">
+    <span class="date"><%= @trip.created_at.strftime("%B %d, %Y") %></span>
+  </div>
+  <hr>
+  <div class='calendar'></div>
+</div>
+<%= render '/common/fullcalendar' %>

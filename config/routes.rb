@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   root 'posts#index'
   resources :cates
   resources :posts
+  resources :trips do
+    member do
+      get :get_date
+    end
+  end
   get 'tags/:tag', to: 'posts#index', as: :tag
   namespace :dashboard do
     root 'posts#index'

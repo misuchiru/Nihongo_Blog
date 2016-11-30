@@ -1,0 +1,38 @@
+<script>
+  var initialize_calendar;
+  initialize_calendar = function() {
+    var t;
+    t = void 0;
+    $.getJSON('events/get_date.json', function(json) {
+      t = json;
+
+      $('.calendar').each(function(){
+        var calendar = $(this);
+        calendar.fullCalendar({
+          locale: 'zh-tw',
+          events: 'events.json',
+          editable: true,
+          scrollTime: '05:00:00',
+          height: 950,
+          defaultView: 'agendaDate',
+          header: {
+            left: 'prev,today,next',
+            center: 'title',
+            right: 'listWeek,agendaDate,month'
+          },
+          views: {
+            agendaDate: {
+              type: 'agenda',
+              duration: {
+                days: t.days
+              }
+            }
+          },
+          defaultDate: t.defaultDate
+        });
+      })
+    });
+  };
+  $(document).on('turbolinks:load', initialize_calendar);
+
+</script>

@@ -1,0 +1,14 @@
+<% @trips.each do |trip| %>
+  <article class="wow fadeInDown">
+    <div class="blog-content">
+      <h2 class="blogtrip-title">
+        <%=  link_to trip.name, trip %>
+      </h2>
+      <div class="blog-meta">
+        <span><%= trip.created_at.strftime("%B %d, %Y") %></span>
+      </div>
+      <%=  link_to "更多內容", trip, class: "btn btn-dafault btn-details" %>
+    </div>
+  </article>
+    <hr>
+<% end %>

@@ -1,9 +1,11 @@
-class Dashboard::EventsController < ApplicationController
-  before_action :authenticate_user!
-  layout 'dashboard'
+class Dashboard::EventsController < Dashboard::AdminController
   def index
     @trip = Trip.find(params[:trip_id])
     @events = @trip.events
+    respond_to do |format|
+      format.html { render :handlers => [:erb]}
+      format.json { render :layout => false , :handlers => [:jbuilder]}
+    end
   end
 
   def show
@@ -31,6 +33,7 @@ class Dashboard::EventsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @event = @trip.events.find(params[:id])
     @event.update(event_params)
+    redirect_to dashboard_trip_events_path, notice: 'Post was successfully updated.'
   end
 
   def destroy
@@ -40,9 +43,10 @@ class Dashboard::EventsController < ApplicationController
   end
   def get_date
     @trip = Trip.find(params[:trip_id])
-    render 'get_date', formats: 'json', handlers: 'jbuilder'
+    respond_to do |format|
+      format.json { render :layout => false , :handlers => [:jbuilder]}
+    end
   end
-
   private
 
   def event_params

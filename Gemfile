@@ -21,7 +21,7 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -36,6 +36,7 @@ gem 'paperclip'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'pagedown-bootstrap-rails'
+gem 'jquery-turbolinks'
 gem 'simple_form'
 
 #SEO設定
@@ -52,6 +53,9 @@ gem "haml-rails"
 #行事曆
 # gem 'fullcalendar-rails'
 # gem 'momentjs-rails'
+
+# language
+gem 'rails-i18n'
 
 gem 'sitemap_generator'
 

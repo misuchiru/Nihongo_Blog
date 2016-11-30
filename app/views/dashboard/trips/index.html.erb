@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2>類別管理</h2>
+<h2>旅行管理</h2>
 <hr>
 <%= link_to '新增旅行', new_dashboard_trip_path, :class => 'btn btn-info' %>
 <br>
@@ -20,7 +20,7 @@
       <tr>
         <td><%= trip.name %></td>
         <td><%= trip.start_date.to_date %> ~ <%= trip.end_date.to_date %></td>
-        <td><%= link_to '檢視', dashboard_trip_events_path(trip), class: "btn btn-default btn-sm" %></td>
+        <td><%= link_to '管理行程', dashboard_trip_events_path(trip), class: "btn btn-default btn-sm" %></td>
         <td><%= link_to '編輯', edit_dashboard_trip_path(trip), class: "btn btn-info btn-sm" %></td>
         <td><%= link_to '刪除', dashboard_trip_path(trip), method: :delete, data: { confirm: '確定要刪除嗎?' }, class: "btn btn-warning btn-sm" %></td>
       </tr>
