@@ -42,5 +42,13 @@ initialize_pagedown = function() {
             return editor.run();
         });
     });
+    $(function() {
+        $('.wmd-output').each(function(i) {
+            var converter = new Markdown.Converter();
+            var content = $(this).html();
+            $(this).html(converter.makeHtml(content));
+        });
+    });
+
 };
 $(document).on('turbolinks:load', initialize_pagedown);
