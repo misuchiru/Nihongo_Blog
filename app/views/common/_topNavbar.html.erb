@@ -30,7 +30,7 @@
                   <li><%= link_to "文章管理", dashboard_posts_path %></li>
                   <li><%= link_to "旅行管理", dashboard_trips_path %></li>
                   <li><%= link_to "類別管理", dashboard_cates_path %></li>
-                  <li><%= link_to "回後台", dashboard_posts_path %></li>
+                  <li><%= link_to "登出", destroy_user_session_path, method: :delete %></li>
                 </ul>
               </div>
             </li>
