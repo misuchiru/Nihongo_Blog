@@ -27,6 +27,7 @@ class Dashboard::EventsController < Dashboard::AdminController
     @trip = Trip.find(params[:trip_id])
     @event = @trip.events.new(event_params)
     @event.save
+    redirect_to dashboard_trip_events_path, notice: 'Post was successfully updated.'
   end
 
   def update

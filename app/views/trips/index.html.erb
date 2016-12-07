@@ -1,14 +1,14 @@
-<% @trips.each do |trip| %>
-  <article class="wow fadeInDown">
-    <div class="blog-content">
-      <h2 class="blogtrip-title">
-        <%=  link_to trip.name, trip %>
-      </h2>
-      <div class="blog-meta">
-        <span><%= trip.created_at.strftime("%B %d, %Y") %></span>
+<div class="row trip_content">
+  <% @trips.each do |trip| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="<%= trip.img%>" alt="kyoto">
+        <div class="caption">
+          <h3><%= trip.name%></h3>
+          <p><%= trip.description%></p>
+          <p><%=  link_to "看行程", trip, class: "btn btn-primary" %></p>
+        </div>
       </div>
-      <%=  link_to "更多內容", trip, class: "btn btn-dafault btn-details" %>
     </div>
-  </article>
-    <hr>
-<% end %>
+  <% end %>
+</div>

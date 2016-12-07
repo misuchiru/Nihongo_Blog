@@ -3,6 +3,7 @@ date_range_picker = function() {
     $('.date-range-picker').each(function(){
         $(this).daterangepicker({
             timePicker: true,
+            timePicker24Hour: true,
             timePickerIncrement: 30,
             alwaysShowCalendars: true
         }, function(start, end, label) {
