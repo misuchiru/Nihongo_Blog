@@ -32,6 +32,7 @@
       })
     });
   };
-  $(document).on('turbolinks:load', initialize_calendar);
+  $(document).ready(initialize_calendar)
+  $(document).on('page:load', initialize_calendar);
 
 </script>
