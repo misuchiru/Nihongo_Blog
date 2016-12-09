@@ -9,7 +9,6 @@ class PostsController < ApplicationController
     else
       @posts = @paginate = Post.includes(:cate).published.order('id DESC').paginate(:page => params[:page])
     end
-
   end
 
   def show

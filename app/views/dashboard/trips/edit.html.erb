@@ -15,6 +15,7 @@
 
   <div class="field">
     <%= f.input :name %>
+    <%= f.input :status, collection: [ ['草稿', 'draft'] ,['公開旅遊行程', 'published'] ], as: :select, prompt: "請選擇旅行分享狀態" %>
     <%= f.input :date_range, input_html: { class: "form-control input-sm date-range-picker" } %>
     <%= f.input_field :start_date, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden' %>
     <%= f.input_field :end_date, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden' %>
