@@ -1,21 +1,26 @@
-<%= simple_form_for [:dashboard ,@trip, @event] do |f| %>
+<%= simple_form_for [:dashboard ,@trip, @event], remote: true do |f| %>
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :date_range, input_html: { class: "form-control input-sm date-range-picker" } %>
     <%= f.input_field :start, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden' %>
     <%= f.input_field :end, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden' %>
-    <%= f.input :color, as: :select, collection: [['白','white'],
-                                                  ['深藍','blue'],
-                                                  ['天空藍','deepskyblue'],
-                                                  ['亮紅','red'],
-                                                  ['蘿蔔紅','coral'],
-                                                  ['深綠','green'],
-                                                  ['萊姆綠','limegreen']
-    ]
-    %>
+    <%= f.input :color, :as => :radio_buttons, :label => 'Choose a Color:', :collection =>{
+      '<div class="red colorbox"></div>'.html_safe => 'red',
+      '<div class="coral colorbox"></div>'.html_safe => 'coral',
+      '<div class="blue colorbox"></div>'.html_safe => 'blue',
+      '<div class="deepskyblue colorbox"></div>'.html_safe => 'deepskyblue',
+      '<div class="green colorbox"></div>'.html_safe => 'green',
+      '<div class="limegreen colorbox"></div>'.html_safe => 'limegreen' }%>
+
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="text-center">
+    <%= f.button :submit, '送出行程', :class => 'btn btn-info' %>
+    <%= link_to '刪除行程',
+                dashboard_trip_event_path(@trip, @event),
+                method: :delete,
+                class: 'btn btn-danger',
+                data: { confirm: 'Are you sure?' },
+                remote: true unless @event.new_record? %>
   </div>
 <% end %>

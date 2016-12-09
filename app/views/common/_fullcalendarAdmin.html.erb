@@ -1,37 +1,74 @@
 <script>
-  var initialize_calendar;
-  initialize_calendar = function() {
-    var t;
-    t = void 0;
-    $.getJSON('<%= "/dashboard/trips/#{@trip.id}/events/get_date.json" %>', function(json) {
-      t = json;
-      $('#calendar').each(function(){
-        var calendar = $(this);
-        calendar.fullCalendar({
-          locale: 'zh-tw',
-          events: 'events.json',
-          editable: true,
-          scrollTime: '05:00:00',
-          height: 950,
-          defaultView: 'agendaDate',
-          header: {
-            left: 'prev,today,next',
-            center: 'title',
-            right: 'listWeek,agendaDate,month'
-          },
-          views: {
-            agendaDate: {
-              type: 'agenda',
-              duration: {
-                days: t.days
-              }
-            }
-          },
-          defaultDate: t.defaultDate
-        });
-      })
-    });
-  };
+var initialize_calendar;
+initialize_calendar = function() {
+  var t;
+  t = void 0;
+  $.getJSON('<%= "/dashboard/trips/#{@trip.id}/events/get_date.json" %>', function(json) {
+    t = json;
+$('#calendar').each(function(){
+  var calendar = $(this);
+  calendar.fullCalendar({
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'agendaDay,agendaDate,month'
+    },
+    selectable: true,
+    selectHelper: true,
+    editable: true,
+    eventLimit: true,
+    minTime: '05:00:00',
+    maxTime: '24:00:00',
+    height: 980,
+    events: 'events.json',
+    defaultView: 'agendaDate',
+    views: {
+      agendaDate: {
+        type: 'agenda',
+        duration: {
+          days: t.days
+        }
+      }
+    },
+    defaultDate: t.defaultDate,
+    select: function(start, end) {
+      $.getScript('events/new', function() {
+        $('#event_date_range').val(moment(start).format("LLL") + ' - ' + moment(end).format("LLL"))
+        date_range_picker();
+        $('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
+        $('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
+      });
+
+      calendar.fullCalendar('unselect');
+    },
+
+    eventDrop: function(event, delta, revertFunc) {
+      event_data = {
+        event: {
+          id: event.id,
+          start: event.start.format(),
+          end: event.end.format()
+        }
+      };
+      $.ajax({
+          url: event.update_url,
+          data: event_data,
+          type: 'PATCH'
+      });
+    },
+
+    eventClick: function(event, jsEvent, view) {
+      $.getScript(event.edit_url, function() {
+        $('#event_date_range').val(moment(event.start).format("LLL") + ' - ' + moment(event.end).format("LLL"))
+        date_range_picker();
+        $('.start_hidden').val(moment(event.start).format('YYYY-MM-DD HH:mm'));
+        $('.end_hidden').val(moment(event.end).format('YYYY-MM-DD HH:mm'));
+      });
+    }
+  });
+})
+});
+};
   $(document).ready(initialize_calendar)
   $(document).on('page:load', initialize_calendar);
 </script>

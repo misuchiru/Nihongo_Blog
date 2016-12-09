@@ -36,7 +36,6 @@ gem 'paperclip'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'pagedown-bootstrap-rails'
-gem 'jquery-turbolinks'
 gem 'simple_form'
 
 #SEO設定
