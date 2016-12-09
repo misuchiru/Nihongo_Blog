@@ -12,5 +12,4 @@ date_range_picker = function() {
         });
     })
 };
-$(document).ready(date_range_picker)
-$(document).on('page:load', date_range_picker);
+$(document).on('turbolinks:load', date_range_picker);

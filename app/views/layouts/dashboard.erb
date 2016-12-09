@@ -16,6 +16,7 @@
       <div class="row">
         <div class="col-md-12">
           <%= yield %>
+          <div id='remote_container'></div>
           <div class="text-center">
             <%= will_paginate @paginate, renderer: BootstrapPagination::Rails if @paginate %>
           </div>

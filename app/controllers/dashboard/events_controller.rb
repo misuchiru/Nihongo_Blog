@@ -16,31 +16,41 @@ class Dashboard::EventsController < Dashboard::AdminController
   def new
     @trip = Trip.find(params[:trip_id])
     @event = @trip.events.new
+    respond_to do |format|
+      format.html
+      format.js { render :layout => false }
+    end
   end
 
   def edit
     @trip = Trip.find(params[:trip_id])
     @event = @trip.events.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render :layout => false , :handlers => [:jbuilder]}
+      format.js { render :layout => false }
+    end
   end
 
   def create
     @trip = Trip.find(params[:trip_id])
     @event = @trip.events.new(event_params)
     @event.save
-    redirect_to dashboard_trip_events_path, notice: 'Post was successfully updated.'
+    redirect_to dashboard_trip_events_path
   end
 
   def update
     @trip = Trip.find(params[:trip_id])
     @event = @trip.events.find(params[:id])
     @event.update(event_params)
-    redirect_to dashboard_trip_events_path, notice: 'Post was successfully updated.'
+    redirect_to dashboard_trip_events_path
   end
 
   def destroy
     @trip = Trip.find(params[:trip_id])
     @event = @trip.events.find(params[:id])
     @event.destroy
+    redirect_to dashboard_trip_events_path
   end
   def get_date
     @trip = Trip.find(params[:trip_id])
